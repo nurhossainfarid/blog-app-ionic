@@ -9,7 +9,7 @@ import { BlogModel } from 'src/app/model/blog';
 export class HttpClientService {
   private http = inject(HttpClient);
   private blogListSignal = signal<BlogModel[]>([]);
-  blogUrl: string = 'https://jsonplaceholder.typicode.com/todos';
+  blogUrl: string = 'https://jsonplaceholder.typicode.com/posts';
 
   get blogList() {
     return this.blogListSignal;

@@ -1,0 +1,13 @@
+<ion-card class="ion-padding">
+  <ion-card-header class="ion-text-start">
+    <img alt="Silhouette of mountains" src="https://placehold.co/600x400" />
+    <ion-card-title>{{ blog.title }}</ion-card-title>
+    <ion-card-subtitle>
+      {{ blog.body }}
+    </ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-button fill="clear" [routerLink]="['/details', blog.id]"
+    >Details</ion-button
+  >
+</ion-card>
