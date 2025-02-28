@@ -21,7 +21,7 @@ export class HttpClientService {
   }
 
   // get todo details
-  getTodoDetails(id: string): Observable<BlogModel> {
+  getBlogDetails(id: number): Observable<BlogModel> {
     return this.http.get<BlogModel>(`${this.blogUrl}/${id}`);
   }
 

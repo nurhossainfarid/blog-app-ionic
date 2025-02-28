@@ -1,0 +1,37 @@
+<ion-content color="primary" [fullscreen]="true">
+  <hr />
+  <section class="flex flex-col items-start h-full pt-52">
+    <ion-buttons slot="start">
+      <ion-back-button
+        class="text-black absolute"
+        defaultHref="/"
+      ></ion-back-button>
+    </ion-buttons>
+    <div class="flex flex-col gap-3 p-3">
+      <h1 class="text-5xl font-bold text-center w-2/3 mx-auto">
+        {{ blog.title }}
+      </h1>
+      <p class="text-gray-700 text-2xl text-center w-2/3 mx-auto">
+        {{ blog.body}}
+      </p>
+      <div class="flex gap-2 items-center justify-center">
+        <ion-icon
+          name="person-circle-outline"
+          class="text-black text-5xl"
+        ></ion-icon>
+        <div class="flex gap-5">
+          <strong>N.H. Farid</strong>
+          <p class="flex gap-2 items-center text-gray-700">
+            <ion-icon name="book"></ion-icon>
+            <span>5 min read</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <img
+      class="w-2/3 mx-auto"
+      alt="Silhouette of mountains"
+      src="https://cdn.hashnode.com/res/hashnode/image/upload/v1726481225494/9e8d5dbe-25dd-4009-8611-4e80a3f529bc.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp"
+    />
+  </section>
+</ion-content>

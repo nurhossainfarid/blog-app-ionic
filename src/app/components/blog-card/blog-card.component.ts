@@ -1,10 +1,13 @@
 import {
   IonCard,
+  IonIcon,
   IonButton,
   IonCardTitle,
   IonCardHeader,
   IonCardSubtitle,
 } from '@ionic/angular/standalone';
+import { personCircleOutline, book } from 'ionicons/icons';
+import { addIcons } from 'ionicons';
 import { Component, inject, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BlogModel } from 'src/app/model/blog';
@@ -16,11 +19,13 @@ import { HttpClientService } from 'src/app/services/http-client-service/http-cli
   styleUrls: ['./blog-card.component.scss'],
   imports: [
     IonCard,
+    IonIcon,
     IonButton,
     RouterModule,
     IonCardTitle,
     IonCardHeader,
     IonCardSubtitle,
+    RouterModule,
   ],
 })
 export class blogCardComponent {
@@ -29,11 +34,16 @@ export class blogCardComponent {
   public error = null;
   public isLoading = false;
 
-  constructor() {}
+  constructor() {
+    addIcons({
+      personCircleOutline,
+      book,
+    });
+  }
 
   // get single blog
-  getBlogDetails = (id: string) => {
-    this.httpClientService.getTodoDetails(id).subscribe({
+  getBlogDetails = (id: number) => {
+    this.httpClientService.getBlogDetails(id).subscribe({
       next: (data) => {
         this.blog = data;
       },

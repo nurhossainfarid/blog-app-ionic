@@ -9,11 +9,11 @@ import {
   IonAvatar,
   IonContent,
   IonSkeletonText,
+  IonSpinner,
 } from '@ionic/angular/standalone';
-import { HeaderComponent } from '../components/header/header.component';
-import { HttpClientService } from '../services/http-client-service/http-client.service';
-import { blogCardComponent } from '../components/blog-card/blog-card.component';
-import { BlogModel } from '../model/blog';
+import { HttpClientService } from '../../services/http-client-service/http-client.service';
+import { blogCardComponent } from '../../components/blog-card/blog-card.component';
+import { BlogModel } from '../../model/blog';
 
 @Component({
   selector: 'app-home',
@@ -29,8 +29,8 @@ import { BlogModel } from '../model/blog';
     IonAvatar,
     IonContent,
     IonSkeletonText,
-    HeaderComponent,
     blogCardComponent,
+    IonSpinner,
   ],
 })
 export class HomePage {
@@ -40,6 +40,10 @@ export class HomePage {
   public blogList: BlogModel[] = [];
   public dummyArray = new Array(3);
   constructor() {
+    this.fetchAllBlogs();
+  }
+
+  fetchAllBlogs() {
     this.httpClientService.getAllBlogs().subscribe({
       next: (blogs) => {
         this.isLoading = true;

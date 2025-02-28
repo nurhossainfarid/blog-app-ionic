@@ -1,13 +1,29 @@
-<ion-card class="ion-padding">
-  <ion-card-header class="ion-text-start">
-    <img alt="Silhouette of mountains" src="https://placehold.co/600x400" />
-    <ion-card-title>{{ blog.title }}</ion-card-title>
-    <ion-card-subtitle>
-      {{ blog.body }}
-    </ion-card-subtitle>
-  </ion-card-header>
-
-  <ion-button fill="clear" [routerLink]="['/details', blog.id]"
-    >Details</ion-button
-  >
-</ion-card>
+<section
+  [routerLink]="['/blog-details', blog.id]"
+  class="flex flex-col items-start"
+>
+  <img
+    class="border-2 border-gray-200 rounded-md"
+    alt="Silhouette of mountains"
+    src="https://cdn.hashnode.com/res/hashnode/image/upload/v1726481225494/9e8d5dbe-25dd-4009-8611-4e80a3f529bc.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp"
+  />
+  <div class="flex flex-col gap-3 p-3">
+    <h1 class="text-2xl font-bold">{{ blog.title }}</h1>
+    <p class="text-gray-700">
+      {{ blog.body.length > 45 ? blog.body.slice(0, 45) + "..." : blog.body }}
+    </p>
+    <div class="flex gap-2 items-center">
+      <ion-icon
+        name="person-circle-outline"
+        class="text-black text-5xl"
+      ></ion-icon>
+      <div>
+        <strong>N.H. Farid</strong>
+        <p class="flex gap-2 items-center text-gray-700">
+          <ion-icon name="book"></ion-icon>
+          <span>5 min read</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
